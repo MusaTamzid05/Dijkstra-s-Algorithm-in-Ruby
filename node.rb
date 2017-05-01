@@ -2,7 +2,7 @@
 
 class Node
 
-    attr_accessor :index  , :city
+    attr_accessor :index  , :city , :key
     def initialize(index , city , key = 1000)
         @index = index
         @city = city
@@ -25,6 +25,7 @@ class Node
 
         puts "index #{@index}"
         puts "city #{@city}"
+        puts "key #{@key}"
         show_adj
 
     end

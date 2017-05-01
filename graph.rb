@@ -1,7 +1,7 @@
 
 
 class Graph
-
+    attr_accessor :nodes
     def initialize
         @nodes = []
     end
