@@ -3,24 +3,26 @@
 class Djistra
 
 
-
+    attr_accessor :nodes
     def initialize(queue)
         @queue = queue
+        @nodes = []
     end
 
 
     def run
 
         while @queue.is_empty? == false
-            node = @Queue.dequeue
+            node = @queue.dequeue
 
-            adj_indexes = node.adj
+            @nodes << node
 
-            adj_indexes.each { |adj_index|
+            adj_nodes = node.adj
+
+            adj_nodes.each { |adj_node|
         
-                adj_node = @queue.get_node_with_index(adj_index)
 
-                if  @queue.exits(adj_node) == false
+                if  @queue.exists?(adj_node) == false
                     next
                 end
 
@@ -36,13 +38,12 @@ class Djistra
                 if edge_distance < adj_node.key
                     adj_node.key = edge_distance
                     adj_node.parent = node
-                    @queue.update(new_node)
+                    @queue.update(adj_node)
                 end
-                @queue.sort_nodes
             
             }
-
-
+            
+            @queue.sort_nodes
         end
     end
 end

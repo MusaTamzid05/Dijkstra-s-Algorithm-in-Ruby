@@ -2,6 +2,8 @@ require_relative "node.rb"
 require_relative "graph.rb"
 require_relative "queue"
 
+require_relative "djistra"
+
 node1 = Node.new(1 , "San Francisco" , 0 )
 node2 = Node.new(2 , "San Rafeal" )
 node3 = Node.new(3 , "Richmond")
@@ -88,8 +90,22 @@ graph.connect(14, 15 , 15)
 nodes = graph.nodes
 
 queue = Queue.new(nodes)
+djistra = Djistra.new(queue)
+djistra.run
+nodes = djistra.nodes
 
 
+nodes.each { |node|
 
+    city = node.city
+    parent_node = node.parent
+
+    if parent_node
+        parent = parent_node.city
+    else
+        parent = "nill"
+    end
+    puts "#{city} parent  #{parent}"
+}
 
 

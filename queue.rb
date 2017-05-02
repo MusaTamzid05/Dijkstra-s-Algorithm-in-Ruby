@@ -59,17 +59,24 @@ class Queue
     def update(new_node)
 
         current_index = -1
+        temp = nil
         @nodes.each { |node|
 
             current_index += 1
             if node.index == new_node.index
+                temp = node
                 break
             end
 
 
         }
 
-        @nodes[current_index] = node
+        if temp == nil
+
+            puts "Something when wrong!!"
+        end
+
+        @nodes[current_index] = temp 
     end
 
 

@@ -2,7 +2,7 @@
 
 class Node
 
-    attr_accessor :index  , :city , :key , :adj , :weights
+    attr_accessor :index  , :city , :key , :adj , :weights , :parent
     def initialize(index , city , key = 1000)
         @index = index
         @city = city
