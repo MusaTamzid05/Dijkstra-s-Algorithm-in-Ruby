@@ -33,14 +33,14 @@ class Graph
             return nil
     end
 
-    def connect(index1 , index2)
+    def connect(index1 , index2 , weight)
 
         node1 = get_node_with_index(index1)
         node2 = get_node_with_index(index2)
 
         if node1 and node2
-            @nodes[node1].add_adj(@nodes[node2])
-            @nodes[node2].add_adj(@nodes[node1])
+            @nodes[node1].add_adj(@nodes[node2] , weight)
+            @nodes[node2].add_adj(@nodes[node1] , weight)
             return
         end
         puts "can make connection between nodes"
